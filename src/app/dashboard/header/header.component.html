@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+    <!-- Logo on the left -->
+    <div class="logo-container" routerLink="/dashboard">
+      <h1>Password Manager</h1>
+    </div>
+
+    <!-- Navigation links on the right -->
+    <div class="navigation-links">
+      <h4 *ngIf="!!userName" style="color: black">{{userName}}</h4>
+      <a mat-button (click)="addNewPassword()" matTooltip="add new password" class="nav-button"><mat-icon>add</mat-icon></a>
+      <a mat-button (click)="logout()" matTooltip="logout" class="nav-button"><mat-icon>logout</mat-icon></a>
+    </div>
+</mat-toolbar>
+

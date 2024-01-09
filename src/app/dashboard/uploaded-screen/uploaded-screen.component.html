@@ -1,0 +1,62 @@
+<!-- table.component.html -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Add columns for each displayed column -->
+  <ng-container matColumnDef="PasswordType">
+    <th mat-header-cell *matHeaderCellDef>Password Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.PasswordType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Password">
+    <th mat-header-cell *matHeaderCellDef>Password</th>
+    <td mat-cell *matCellDef="let element">
+      <ng-container *ngIf="element.showPassword; else maskedPassword">
+        {{ element.Password }}
+      </ng-container>
+      <ng-template #maskedPassword>
+        •••••••• <!-- Display masked password -->
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Url">
+    <th mat-header-cell *matHeaderCellDef>URL</th>
+    <td mat-cell *matCellDef="let element">{{ element.Url }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="CreatedDate">
+    <th mat-header-cell *matHeaderCellDef>Created Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.CreatedDate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ModifiedDate">
+    <th mat-header-cell *matHeaderCellDef>Modified Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.ModifiedDate }}</td>
+  </ng-container>
+
+  <!-- Add additional columns if needed -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="togglePassword(element)">
+        <mat-icon>{{ element.showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteRow(element)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <!-- Add column for actions (e.g., edit, delete) if necessary -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div *ngIf="!data.length" class="noData">
+  No data found
+</div>

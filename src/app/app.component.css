@@ -1,0 +1,6 @@
+body{
+  display: block; /* Ensure the host element is a block-level element */
+  padding: 0;
+  margin: 0;
+}
+

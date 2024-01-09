@@ -1,0 +1,10 @@
+table{
+  width: 100vw;
+}
+.noData{
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem; /* Adjust as needed */
+  font-size: 1.125rem; /* Equivalent to text-lg in Tailwind */
+  color: #4a5568; /* Equivalent to text-gray-700 in Tailwind */
+}
