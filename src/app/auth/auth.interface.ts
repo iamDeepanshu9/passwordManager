@@ -21,5 +21,5 @@ export interface SignUpRequestBody{
   email: string;
   password: string;
   username: string;
-  isAdmin: boolean;
+  isTeacher: boolean;
 }

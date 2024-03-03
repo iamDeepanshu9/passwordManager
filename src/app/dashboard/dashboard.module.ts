@@ -7,17 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MaterialModule} from "../material/material.module";
-import { UploadedScreenComponent } from './uploaded-screen/uploaded-screen.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { AddnewpasswordComponent } from './addnewpassword/addnewpassword.component';
+import { StudentComponent } from './student/student.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     HeaderComponent,
-    UploadedScreenComponent,
-    AddnewpasswordComponent,
+    StudentComponent,
+    TeacherComponent,
   ],
   imports: [
     CommonModule,

@@ -16,23 +16,18 @@ const GetAuthTokens = () => {
   providedIn: 'root',
 })
 export class ApiHandleService {
-  data$$ = new BehaviorSubject(null);
+  public data$$ = new BehaviorSubject(null);
   constructor(private http: HttpClient) {
   }
 
-  login$(loginBody: UserLoginRequestBody): Observable<UserLoginResponseData> {
+  login$(loginBody: any): Observable<any> {
     let reqHeader = new HttpHeaders({'Content-Type': 'application/json'})
-    return this.http.post<UserLoginResponseData>('https://localhost:7272/api/Account/login',loginBody,{headers:reqHeader}) as Observable<UserLoginResponseData>;
+    return this.http.post<any>('https://localhost:7272/api/Account/login',loginBody,{headers:reqHeader}) as Observable<any>;
   }
 
-  signUp$(signUpRequestBody: any): Observable<string> {
+  signUp$(signUpRequestBody: any): Observable<any> {
     let reqHeader = new HttpHeaders({'Content-Type': 'application/json'})
-    return this.http.post<string>('https://localhost:7272/api/Account/RegisterUser', signUpRequestBody,{headers:reqHeader}) as Observable<string>;
-  }
-
-  scramble$(scrambleRequestBody: any) {
-    let reqHeader = new HttpHeaders({'Content-Type': 'application/json'})
-    return this.http.post<any>(API_USERS_URL, scrambleRequestBody,{headers:reqHeader});
+    return this.http.post<any>('https://localhost:7272/api/Account/RegisterUser', signUpRequestBody,{headers:reqHeader}) as Observable<any>;
   }
 
   userData$(){
@@ -40,15 +35,8 @@ export class ApiHandleService {
     return this.http.get<any>(API_USERS_URL,{headers:reqHeader});
   }
 
-  uploadData$(data: any){
+  setUser$(data: any){
     this.data$$.next(data);
-  }
-
-  getNewData$(){
-    console.log('hit get');
-    return combineLatest([this.data$$]).pipe(map((v)=>{
-      return this.data$$.value;
-    }))
   }
 
 }

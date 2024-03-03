@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AuthService} from "../../services/auth.service";
 import {Route, Router} from "@angular/router";
-import {AddnewpasswordComponent} from "../addnewpassword/addnewpassword.component";
 
 @Component({
   selector: 'app-header',
@@ -26,12 +25,5 @@ export class HeaderComponent implements OnInit {
       replaceUrl: true
     })
     this.authService.logout();
-  }
-
-  addNewPassword() {
-    const d = this.dialog.open(AddnewpasswordComponent);
-    d.afterClosed().pipe().subscribe((v)=>{
-      console.log(v);
-    })
   }
 }

@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private isAuthenticated = false;
+  private isTeacher = false;
 
   login() {
     // Call the login API here and handle the success response
@@ -22,6 +23,14 @@ export class AuthService {
   isLoggedIn(): boolean {
     // return this.isAuthenticated;
     return localStorage.getItem('isAuthenticated') === 'true';
+  }
+
+  setIsTeacher(v){
+    this.isTeacher = v;
+  }
+
+  getIsTeacher(): boolean {
+    return this.isTeacher;
   }
 
 }

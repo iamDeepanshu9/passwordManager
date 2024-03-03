@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UploadedScreenComponent } from './uploaded-screen.component';
+import { TeacherComponent } from './teacher.component';
 
-describe('UploadedScreenComponent', () => {
-  let component: UploadedScreenComponent;
-  let fixture: ComponentFixture<UploadedScreenComponent>;
+describe('TeacherComponent', () => {
+  let component: TeacherComponent;
+  let fixture: ComponentFixture<TeacherComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UploadedScreenComponent ]
+      declarations: [ TeacherComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UploadedScreenComponent);
+    fixture = TestBed.createComponent(TeacherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

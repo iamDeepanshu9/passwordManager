@@ -1,0 +1,37 @@
+<div [formGroup]="signUpFormGroup" class="login-box">
+  <h2>Register<span> {{signUpFormGroup.get('isTeacher').value ? 'Teacher' : 'Student'}}</span></h2>
+  <label class="toggle-container" style="margin: 0 auto;">
+    <input type="checkbox" formControlName="isTeacher" [(ngModel)]="teacher" [value]="teacher" id="toggle-input" class="toggle-input">
+    <span class="toggle-slider"></span>
+  </label>
+  <div>
+    <div class="user-box">
+      <input type="text" formControlName="username" name="" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input formControlName="email" type="text" name="" required="">
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input formControlName="age" type="number" name="" required="">
+      <label>Age</label>
+    </div>
+    <div class="user-box">
+      <input type="text" formControlName="cls" name="" required="">
+      <label>{{signUpFormGroup.get('isTeacher').value ? 'Subject' : 'Class'}}</label>
+    </div>
+    <div class="user-box">
+      <input formControlName="password" type="password" name="" required="">
+      <label>Password</label>
+    </div>
+    <a (click)="signUpButtonHandle()" style="cursor: pointer;">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Sign-Up
+    </a>
+  </div>
+ <a class="new-user" style="color: white;" (click)="navigateToLogin()"> Already Register? Login!</a>
+</div>
